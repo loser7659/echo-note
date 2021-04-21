@@ -2,6 +2,9 @@ package com.eg.note.service;
 
 import com.eg.note.dao.CategoryDao;
 import com.eg.note.pojo.Category;
+import com.eg.note.pojo.User;
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
@@ -20,6 +23,10 @@ public class CategoryService {
 
     public List<Category> getAll(){
         return categoryDao.findAll(Sort.by(Sort.Direction.DESC,"id"));
+    }
+
+    public List<Category> getAllByUser(User author){
+        return categoryDao.findByAuthor(author);
     }
 
     public void deleteById(int id){

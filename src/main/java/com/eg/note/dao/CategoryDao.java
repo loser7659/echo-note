@@ -11,5 +11,5 @@ import java.util.List;
  * @date: 2021/4/12 16:26
  */
 public interface CategoryDao extends JpaRepository<Category,Integer> {
-//    List<Category> findByAuthor(User author);
+    List<Category> findByAuthor(User author);
 }

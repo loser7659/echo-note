@@ -19,6 +19,18 @@ public class Category {
     int id;
     String name;
 
+    @ManyToOne
+    @JoinColumn(name = "author")
+    private User author;
+
+    public User getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(User author) {
+        this.author = author;
+    }
+
     public int getId() {
         return id;
     }
